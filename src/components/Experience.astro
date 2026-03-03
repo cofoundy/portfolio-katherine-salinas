@@ -1,0 +1,62 @@
+---
+import { siteConfig } from "../config";
+const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
+---
+
+{hasExperience && (
+  <section id="experience" class="py-12 md:py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="mb-10 reveal-left">
+        <h2 class="text-3xl md:text-4xl font-extrabold" style={`color: ${siteConfig.accentColor}`}>Experiencia</h2>
+        <div class="w-16 h-1 mt-3 rounded-full" style={`background-color: ${siteConfig.highlightColor}`}></div>
+      </div>
+
+      <!-- Change #9: Vertical Timeline -->
+      <div class="timeline-vertical relative pl-14 md:pl-20 space-y-8">
+        {siteConfig.experience.map((exp, index) => (
+          <div class={`reveal stagger-${index + 1} relative`}>
+            <!-- Timeline dot with logo -->
+            <div
+              class="absolute -left-14 md:-left-20 top-0 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center z-10 bg-white shadow-md"
+              style={`border: 3px solid ${siteConfig.highlightColor}`}
+            >
+              <img
+                src={exp.logo}
+                alt={exp.company}
+                class="w-8 h-8 md:w-10 md:h-10 object-contain rounded-full"
+                onerror={`this.style.display='none';this.parentElement.innerHTML='<span style="color:${siteConfig.accentColor};font-weight:800;font-size:14px">${exp.company.charAt(0)}</span>'`}
+              />
+            </div>
+
+            <!-- Experience Card -->
+            <div
+              class="card-hover p-5 md:p-6 rounded-xl bg-gray-50"
+              style={`border: 2px solid ${siteConfig.accentColor}15`}
+            >
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
+                <div>
+                  <h3 class="text-lg font-bold" style={`color: ${siteConfig.accentColor}`}>{exp.title}</h3>
+                  <p class="text-base font-semibold" style={`color: ${siteConfig.highlightColor}`}>{exp.company}</p>
+                </div>
+                <span
+                  class="text-xs px-3 py-1.5 rounded-full mt-2 sm:mt-0 self-start font-bold"
+                  style={`background-color: ${siteConfig.accentColor}; color: white`}
+                >
+                  {exp.dateRange}
+                </span>
+              </div>
+              <ul class="space-y-1.5">
+                {exp.bullets.map((bullet) => (
+                  <li class="flex items-start text-sm text-gray-700">
+                    <span class="inline-block w-2 h-2 rounded-full mt-1.5 mr-2.5 flex-shrink-0" style={`background-color: ${siteConfig.highlightColor}`} />
+                    <Fragment set:html={bullet} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

@@ -1,0 +1,57 @@
+---
+import { siteConfig } from "../config";
+---
+
+<section id="about" class="py-12 md:py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+      <!-- Title -->
+      <div class="lg:col-span-3 reveal-left">
+        <h2 class="text-3xl md:text-4xl font-extrabold" style={`color: ${siteConfig.accentColor}`}>
+          Sobre Mí
+        </h2>
+        <div class="w-16 h-1 mt-3 rounded-full" style={`background-color: ${siteConfig.highlightColor}`}></div>
+      </div>
+
+      <!-- Change #6: Professional focus + Lifestyle -->
+      <div class="lg:col-span-9 reveal stagger-1 space-y-6">
+        <!-- Professional -->
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-wider mb-3" style={`color: ${siteConfig.highlightColor}`}>
+            Enfoque Profesional
+          </h3>
+          <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+            {siteConfig.aboutProfessional}
+          </p>
+        </div>
+
+        <!-- Lifestyle -->
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-wider mb-3" style={`color: ${siteConfig.highlightColor}`}>
+            Lifestyle
+          </h3>
+          <p class="text-base md:text-lg text-gray-600 leading-relaxed italic">
+            "{siteConfig.aboutLifestyle}"
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Change #7: Skills in exact client order -->
+    <div class="mt-10 pt-8 border-t-2 reveal stagger-2" style={`border-color: ${siteConfig.accentColor}20`}>
+      <h3 class="text-sm font-bold uppercase tracking-wider mb-4" style={`color: ${siteConfig.accentColor}`}>
+        Especialidades
+      </h3>
+      <div class="flex flex-wrap gap-2">
+        {siteConfig.skills.map((skill) => (
+          <span
+            class="skill-hover px-4 py-2 rounded-full text-sm font-semibold cursor-default"
+            style={`background-color: ${siteConfig.accentColor}10; color: ${siteConfig.accentColor}; border: 2px solid ${siteConfig.accentColor}30`}
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

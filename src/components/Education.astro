@@ -1,0 +1,123 @@
+---
+import { siteConfig } from "../config";
+const hasEducacion = siteConfig.educacionProfesional && siteConfig.educacionProfesional.length > 0;
+const hasFormacion = siteConfig.formacionComplementaria && siteConfig.formacionComplementaria.length > 0;
+const hasHerramientas = siteConfig.herramientas && siteConfig.herramientas.length > 0;
+---
+
+{(hasEducacion || hasFormacion) && (
+  <section id="education" class="py-12 md:py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="mb-10 reveal-left">
+        <h2 class="text-3xl md:text-4xl font-extrabold" style={`color: ${siteConfig.accentColor}`}>Educación</h2>
+        <div class="w-16 h-1 mt-3 rounded-full" style={`background-color: ${siteConfig.highlightColor}`}></div>
+      </div>
+
+      <!-- Educación Profesional -->
+      {hasEducacion && (
+        <div class="mb-10">
+          <h3 class="text-sm font-bold uppercase tracking-wider mb-5 reveal" style={`color: ${siteConfig.highlightColor}`}>
+            Educación Profesional
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {siteConfig.educacionProfesional.map((edu, index) => (
+              <div
+                class={`reveal stagger-${index + 1} card-hover flex gap-4 p-4 rounded-xl bg-white`}
+                style={`border: 2px solid ${siteConfig.accentColor}15`}
+              >
+                <!-- Logo -->
+                <div
+                  class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden bg-white"
+                  style={`border: 2px solid ${siteConfig.accentColor}15`}
+                >
+                  <img
+                    src={edu.logo}
+                    alt={edu.school}
+                    class="w-10 h-10 object-contain"
+                    onerror={`this.style.display='none';this.parentElement.innerHTML='<span style="color:${siteConfig.accentColor};font-weight:800;font-size:18px">${edu.school.charAt(0)}</span>'`}
+                  />
+                </div>
+
+                <div class="flex-1 min-w-0">
+                  <h4 class="text-base font-bold" style={`color: ${siteConfig.accentColor}`}>
+                    <Fragment set:html={edu.degree} />
+                  </h4>
+                  <p class="text-sm font-semibold" style={`color: ${siteConfig.highlightColor}`}>{edu.school}</p>
+                  {edu.dateRange && (
+                    <p class="text-xs mt-1 text-gray-500 font-medium">{edu.dateRange}</p>
+                  )}
+                  {edu.achievements && edu.achievements.length > 0 && (
+                    <ul class="mt-2 space-y-1">
+                      {edu.achievements.map((a) => (
+                        <li class="flex items-start text-xs text-gray-600">
+                          <span class="inline-block w-1.5 h-1.5 rounded-full mt-1.5 mr-2 flex-shrink-0" style={`background-color: ${siteConfig.highlightColor}`} />
+                          <Fragment set:html={a} />
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- CIP Badge -->
+          {siteConfig.cip && (
+            <div class="flex flex-wrap gap-2 mt-4 reveal">
+              <span
+                class="px-4 py-2 rounded-full text-sm font-bold"
+                style={`background-color: ${siteConfig.highlightColor}; color: white`}
+              >
+                N° CIP: {siteConfig.cip}
+              </span>
+              <span
+                class="px-4 py-2 rounded-full text-sm font-bold"
+                style={`background-color: ${siteConfig.accentColor}; color: white`}
+              >
+                TITULADA
+              </span>
+            </div>
+          )}
+        </div>
+      )}
+
+      <!-- Formación Complementaria -->
+      {hasFormacion && (
+        <div class="mb-8">
+          <h3 class="text-sm font-bold uppercase tracking-wider mb-4 reveal" style={`color: ${siteConfig.highlightColor}`}>
+            Formación Complementaria
+          </h3>
+          <div class="flex flex-wrap gap-2 reveal stagger-1">
+            {siteConfig.formacionComplementaria.map((curso) => (
+              <span
+                class="skill-hover px-3 py-1.5 rounded-full text-xs font-semibold cursor-default"
+                style={`background-color: ${siteConfig.accentColor}08; color: ${siteConfig.accentColor}; border: 1.5px solid ${siteConfig.accentColor}25`}
+              >
+                {curso.name} {curso.institution && `· ${curso.institution}`} {curso.year && `(${curso.year})`}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Herramientas -->
+      {hasHerramientas && (
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-wider mb-4 reveal" style={`color: ${siteConfig.highlightColor}`}>
+            Herramientas
+          </h3>
+          <div class="flex flex-wrap gap-2 reveal stagger-2">
+            {siteConfig.herramientas.map((tool) => (
+              <span
+                class="skill-hover px-3 py-1.5 rounded-full text-xs font-semibold cursor-default"
+                style={`background-color: ${siteConfig.highlightColor}15; color: ${siteConfig.highlightColor}; border: 1.5px solid ${siteConfig.highlightColor}30`}
+              >
+                {tool}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+)}
