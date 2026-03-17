@@ -146,7 +146,7 @@ export const siteConfig = {
       school: "EADA Business School Barcelona",
       degree: "Máster Internacional en Innovación y Sostenibilidad",
       dateRange: "2025 - 2026",
-      logo: " /logos/centrum.svg",
+      logo: " /logos/eada.svg",
       achievements: [],
     },
     {
