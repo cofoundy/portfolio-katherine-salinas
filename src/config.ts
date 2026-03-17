@@ -143,6 +143,13 @@ export const siteConfig = {
       achievements: ["Candidata — culmina en 6 meses"],
     },
     {
+      school: "EADA Business School Barcelona",
+      degree: "Máster Internacional en Innovación y Sostenibilidad",
+      dateRange: "2025 - 2026",
+      logo: " /logos/centrum.svg",
+      achievements: [],
+    },
+    {
       school: "IEBS Digital School (España)",
       degree: "Máster en Marketing Automation & Growth Hacking",
       dateRange: "2021 — 2022",
