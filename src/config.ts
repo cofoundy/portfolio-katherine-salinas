@@ -167,7 +167,7 @@ export const siteConfig = {
       school: "Pontificia Universidad Católica del Perú (PUCP)",
       degree: "Ingeniería Informática (7mo ciclo)",
       dateRange: "2004 — 2009",
-      logo: "/logos/pucp-real.svg",
+      logo: "/logos/pucp.png",
       achievements: [],
     },
   ],
