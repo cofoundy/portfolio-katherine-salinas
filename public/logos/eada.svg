@@ -1,7 +1,5 @@
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background circle -->
-  <circle cx="50" cy="50" r="50" fill="#1e3a8a"/>
-
-  <!-- EADA text -->
-  <text x="50" y="62" font-family="Arial, sans-serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="1">EADA</text>
+  <!-- EADA orange brand color, matching their official isotipo -->
+  <circle cx="50" cy="50" r="48" fill="#E87511"/>
+  <text x="50" y="68" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700" fill="white" text-anchor="middle">e</text>
 </svg>
