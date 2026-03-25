@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
-  <!-- Dark blue background circle -->
-  <circle cx="40" cy="40" r="38" fill="#1e3a8a"/>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="50" fill="#1e3a8a"/>
 
-  <!-- EADA text - clean, bold, centered -->
-  <text x="40" y="48" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="white" text-anchor="middle" letter-spacing="-0.5">EADA</text>
+  <!-- EADA text -->
+  <text x="50" y="65" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="2">EADA</text>
 </svg>

@@ -139,7 +139,7 @@ export const siteConfig = {
       school: "Centrum PUCP Business School",
       degree: "MBA — Maestría en Administración Estratégica de Empresas",
       dateRange: "En curso",
-      logo: "/logos/centrum.svg",
+      logo: "/logos/centrum-pucp.png",
       achievements: ["Candidata — culmina en 6 meses"],
     },
     {
